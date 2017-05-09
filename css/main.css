@@ -50,6 +50,9 @@ body {
 .section {
   padding: 32px;
 }
+.section#section-uploading {
+  text-align: center;
+}
 .content h1 {
   font-size: 20px;
   font-weight: bold;

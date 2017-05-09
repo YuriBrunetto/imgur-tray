@@ -14,11 +14,15 @@ function showTab(currentTab) {
   sections.forEach(function(section) {
     section.style.display = 'none'
   })
-  tabs_item.forEach(function(tab) {
-    tab.classList.remove('active')
-  })
 
-  document.querySelector(`#${currentTab}`).classList.add('active')
+  if (currentTab === 'new' || currentTab === 'uploads') {
+    tabs_item.forEach(function(tab) {
+      tab.classList.remove('active')
+    })
+
+    document.querySelector(`#${currentTab}`).classList.add('active')
+  }
+
   main.querySelector(`#section-${currentTab}`).style.display = 'block'
 }
 
@@ -36,7 +40,7 @@ file.addEventListener('change', function(e) {
 
     if (file.type.match(/image.*/)) {
       uploadFile(file)
-      console.log('loading...')
+      showTab('uploading')
     }
   }
 }, false)

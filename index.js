@@ -45,9 +45,7 @@ const createWindow = () => {
     resizable: true,
     transparent: false,
     webPreferences: {
-      // Prevents renderer process code from not running when _window is
-      // hidden
-      backgroundThrottling: false
+      backgroundThrottling: true
     }
   })
 
