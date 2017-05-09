@@ -1,5 +1,9 @@
-const { app, Tray, Menu, BrowserWindow, ipcMain } = require('electron')
+'use strict'
+
+const { app, Tray, Menu, BrowserWindow } = require('electron')
 const path = require('path')
+
+require('electron-reload')(__dirname)
 
 const assetsDirectory = path.join(__dirname, 'assets')
 
@@ -46,13 +50,8 @@ const createWindow = () => {
       backgroundThrottling: false
     }
   })
-  _window.loadURL(`file://${path.join(__dirname, 'index.html')}`)
 
-  // _window.on('blur', () => {
-  //   if (!_window.webContents.isDevToolsOpened()) {
-  //     _window.hide()
-  //   }
-  // })
+  _window.loadURL(`file://${path.join(__dirname, 'index.html')}`)
 }
 
 const toggleWindow = () => {
@@ -67,10 +66,7 @@ const getWindowPosition = () => {
   const windowBounds = _window.getBounds()
   const trayBounds = tray.getBounds()
 
-  // Center _window horizontally below the tray icon
   const x = Math.round(trayBounds.x + (trayBounds.width / 2) - (windowBounds.width / 2))
-
-  // Position _window 4 pixels vertically below the tray icon
   const y = Math.round(trayBounds.y + trayBounds.height + 4)
 
   return { x: x, y: y }
@@ -82,7 +78,3 @@ const showWindow = () => {
   _window.show()
   _window.focus()
 }
-
-ipcMain.on('show-window', () => {
-  showWindow()
-})

@@ -11,10 +11,69 @@ body {
   background-color: #141518;
 }
 
-.main {
-  padding: 24px;
-}
-
 #image {
   display: none;
+}
+
+.tabs {
+  height: 48px;
+  border-bottom: 1px solid #313134;
+  display: flex;
+}
+.tabs-item {
+  width: 50%;
+  height: 48px;
+  display: inline-block;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgba(242,242,242,.5);
+  transition: color .3s;
+  cursor: pointer;
+}
+.tabs-item:hover {
+  color: rgba(242,242,242,.8);
+}
+.tabs-item:first-child {
+  border-right: 1px solid #313134;
+}
+.tabs-item.active {
+  color: #f2f2f2;
+}
+
+
+
+.section {
+  padding: 32px;
+}
+.content {
+  margin-top: 32px;
+}
+.content h1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.content h2 {
+  font-size: 14px;
+  font-weight: normal;
+  margin-top: 8px;
+  color: rgba(242,242,242,.7);
+}
+
+.select-files {
+  display: inline-block;
+  color: #f2f2f2;
+  background-color: #1BB76E;
+  font-weight: bold;
+  padding: 12px 32px;
+  margin-top: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color .3s;
+}
+.select-files:hover {
+  background-color: #17A563;
 }
