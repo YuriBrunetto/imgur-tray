@@ -57,6 +57,7 @@ function uploadFile(file) {
   xhttp.onreadystatechange = function () {
     if (xhttp.status === 200 && xhttp.readyState === 4) {
       let res = JSON.parse(xhttp.responseText)
+      showTab('uploaded')
       console.log('success!', res)
     }
   }
