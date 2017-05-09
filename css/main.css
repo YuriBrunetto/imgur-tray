@@ -77,3 +77,24 @@ body {
 .select-files:hover {
   background-color: #17A563;
 }
+
+
+
+.footer {
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+  background-color: rgba(0,0,0,.12);
+  color: rgba(242,242,242,.38);
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+}
+.footer a {
+  color: rgba(242,242,242,.38);
+  font-weight: bold;
+  text-decoration: none;
+}
+.footer i {
+  color: #FA3333;
+}
