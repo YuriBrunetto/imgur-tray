@@ -14,3 +14,7 @@ body {
 .main {
   padding: 24px;
 }
+
+#image {
+  display: none;
+}

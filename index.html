@@ -14,14 +14,13 @@
     <main class="main">
       <p>Upload an image</p>
       <form id="upload">
-        <input type="file" id="image" placeholder="Upload...">
-        <input type="submit" value="Submit">
+        <label for="image">Click here to upload an image</label>
+        <input type="file" id="image" multiple>
       </form>
     </main>
 
     <script>
 
-      let form = document.getElementById('upload')
       let file = document.getElementById('image')
 
       file.addEventListener('change', function(e) {
@@ -32,6 +31,7 @@
 
           if (file.type.match(/image.*/)) {
             uploadFile(file)
+            console.log('loading...')
           }
         }
       }, false)
