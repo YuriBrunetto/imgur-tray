@@ -1,0 +1,8 @@
+{
+  "name": "imgur-tray",
+  "version": "0.0.1",
+  "description": "Upload photos to Imgur right in your tray bar",
+  "main": "index.js",
+  "author": "Yuri Brunetto (https://ybrntt.com.br)",
+  "license": "MIT"
+}
