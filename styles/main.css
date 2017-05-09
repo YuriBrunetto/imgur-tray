@@ -1,0 +1,8 @@
+.main {
+  width: 300px;
+  background-color: #fff;
+  border: 1px solid #333;
+  position: absolute;
+  top: 5px;
+  padding: 20px;
+}

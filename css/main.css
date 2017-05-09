@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #f2f2f2;
+  background-color: #141518;
+}
+
+.main {
+  padding: 24px;
+}

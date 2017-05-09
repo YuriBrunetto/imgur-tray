@@ -3,6 +3,12 @@
   "version": "0.0.1",
   "description": "Upload photos to Imgur right in your tray bar",
   "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
   "author": "Yuri Brunetto (https://ybrntt.com.br)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^1.6.6"
+  }
 }
