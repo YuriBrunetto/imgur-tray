@@ -14,8 +14,8 @@
 
     <main class="main">
       <nav class="tabs">
-        <button type="button" id="btn-new" class="tabs-item active">New post</button>
-        <button type="button" id="btn-uploads" class="tabs-item">My uploads</button>
+        <button type="button" id="new" class="tabs-item">New post</button>
+        <button type="button" id="uploads" class="tabs-item">My uploads</button>
       </nav>
 
       <section class="section" id="section-new">
@@ -23,14 +23,23 @@
           <img src="./assets/logo-imgur.svg" alt="Imgur Tray" width="139">
         </header>
 
-        <div class="content">
+        <div class="content margin-top-32">
           <h1>Upload an image</h1>
           <h2>You can select one or multiple files</h2>
 
           <form>
-            <label for="image" class="select-files">Select files</label>
+            <label for="image" class="select-files">
+              <i class="fa fa-cloud-upload" aria-hidden="true"></i> Select files
+            </label>
             <input type="file" id="image" multiple>
           </form>
+        </div>
+      </section>
+
+      <section class="section" id="section-uploads">
+        <div class="content">
+          <h1>My uploads</h1>
+          <h2>Here you can see all your uploads.</h2>
         </div>
       </section>
     </main>

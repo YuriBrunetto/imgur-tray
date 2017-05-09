@@ -33,6 +33,7 @@ body {
   color: rgba(242,242,242,.5);
   transition: color .3s;
   cursor: pointer;
+  outline: none;
 }
 .tabs-item:hover {
   color: rgba(242,242,242,.8);
@@ -48,9 +49,6 @@ body {
 
 .section {
   padding: 32px;
-}
-.content {
-  margin-top: 32px;
 }
 .content h1 {
   font-size: 20px;
@@ -68,7 +66,7 @@ body {
   color: #f2f2f2;
   background-color: #1BB76E;
   font-weight: bold;
-  padding: 12px 32px;
+  padding: 12px 24px;
   margin-top: 24px;
   border-radius: 4px;
   cursor: pointer;
@@ -97,4 +95,10 @@ body {
 }
 .footer i {
   color: #FA3333;
+}
+
+
+
+.margin-top-32 {
+  margin-top: 32px;
 }

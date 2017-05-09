@@ -1,3 +1,31 @@
+// ui
+let tabs_item = document.querySelectorAll('.tabs-item')
+
+tabs_item.forEach(function(tab) {
+  tab.addEventListener('click', function(e) {
+    showTab(e.target.id)
+  })
+})
+
+let main = document.querySelector('.main')
+let sections = document.querySelectorAll('.section')
+
+function showTab(currentTab) {
+  sections.forEach(function(section) {
+    section.style.display = 'none'
+  })
+  tabs_item.forEach(function(tab) {
+    tab.classList.remove('active')
+  })
+
+  document.querySelector(`#${currentTab}`).classList.add('active')
+  main.querySelector(`#section-${currentTab}`).style.display = 'block'
+}
+
+showTab('new')
+
+
+// upload
 let file = document.getElementById('image')
 
 file.addEventListener('change', function(e) {
@@ -28,6 +56,6 @@ function uploadFile(file) {
       console.log('success!', res)
     }
   }
-  
+
   xhttp.send(fd)
 }
