@@ -1,7 +1,9 @@
+require('dotenv').load()
 const showTab = require('./showTab')
 const file = document.querySelector('#image')
 const uploaded_items = document.querySelector('#uploaded-items')
 const more_items = `<div class="more-items">Scroll to see all</div>`
+const CLIENTID = process.env.CLIENTID
 
 file.addEventListener('change', (e) => {
   let files = e.target.files, file, len, i
@@ -24,7 +26,7 @@ function uploadFile(file) {
   fd.append('image', file)
 
   xhttp.open('POST', 'https://api.imgur.com/3/image')
-  xhttp.setRequestHeader('Authorization', 'Client-ID e57becf7e161301')
+  xhttp.setRequestHeader('Authorization', `Client-ID ${CLIENTID}`)
   xhttp.onreadystatechange = () => {
     if (xhttp.status === 200 && xhttp.readyState === 4) {
       let res = JSON.parse(xhttp.responseText), data, item
@@ -35,7 +37,7 @@ function uploadFile(file) {
         <div class="item">
           <div class="item-img" style="background-image:url(${data.link})"></div>
           <div class="item-description">
-            <a href="${data.link}" title="${data.link}" target="_blank">${data.link}</a>
+            <a href="${data.link}" title="${data.link}" class="item-a">${data.link}</a>
           </div>
         </div>
       `
