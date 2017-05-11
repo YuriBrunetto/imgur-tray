@@ -1,38 +1,9 @@
-// ui
-let tabs_item = document.querySelectorAll('.tabs-item')
+const showTab = require('./showTab')
+const file = document.querySelector('#image')
+const uploaded_items = document.querySelector('#uploaded-items')
+const more_items = `<div class="more-items">Scroll to see all</div>`
 
-tabs_item.forEach(function(tab) {
-  tab.addEventListener('click', function(e) {
-    showTab(e.target.id)
-  })
-})
-
-let main = document.querySelector('.main')
-let sections = document.querySelectorAll('.section')
-
-function showTab(currentTab) {
-  sections.forEach(function(section) {
-    section.style.display = 'none'
-  })
-
-  if (currentTab === 'new' || currentTab === 'uploads') {
-    tabs_item.forEach(function(tab) {
-      tab.classList.remove('active')
-    })
-
-    document.querySelector(`#${currentTab}`).classList.add('active')
-  }
-
-  main.querySelector(`#section-${currentTab}`).style.display = 'block'
-}
-
-showTab('new')
-
-
-// upload
-let file = document.getElementById('image')
-
-file.addEventListener('change', function(e) {
+file.addEventListener('change', (e) => {
   let files = e.target.files, file, len, i
 
   for (i = 0, len = files.length; i < len; i++) {
@@ -54,11 +25,22 @@ function uploadFile(file) {
 
   xhttp.open('POST', 'https://api.imgur.com/3/image')
   xhttp.setRequestHeader('Authorization', 'Client-ID e57becf7e161301')
-  xhttp.onreadystatechange = function () {
+  xhttp.onreadystatechange = () => {
     if (xhttp.status === 200 && xhttp.readyState === 4) {
-      let res = JSON.parse(xhttp.responseText)
+      let res = JSON.parse(xhttp.responseText), data, item
       showTab('uploaded')
-      console.log('success!', res)
+
+      data = res.data
+      item = `
+        <div class="item">
+          <div class="item-img" style="background-image:url(${data.link})"></div>
+          <div class="item-description">
+            <a href="${data.link}" title="${data.link}" target="_blank">${data.link}</a>
+          </div>
+        </div>
+      `
+
+      uploaded_items.innerHTML += item
     }
   }
 

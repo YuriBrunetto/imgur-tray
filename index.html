@@ -51,15 +51,8 @@
           <button type="button">Upload more</button>
         </h3>
 
-        <div class="uploaded-items">
-          <div class="more-items">Scroll to see all</div>
-          <div class="item">
-            <div class="item-img" style="background-image:url(http://i.imgur.com/DFghhYr.jpg)"></div>
-            <div class="item-description">
-              image-name.jpg<br>
-              <a href="http://i.imgur.com/DFghhYr.jpg" title="http://i.imgur.com/DFghhYr.jpg">http://i.imgur.com/DFghhYr.jpg</a>
-            </div>
-          </div>
+        <div class="uploaded-items" id="uploaded-items">
+          <!-- items here -->
         </div>
       </section>
 
@@ -70,25 +63,22 @@
           <h2>Here you can see all your uploads.</h2>
         </div>
 
-        <div class="uploaded-items">
-          <div class="more-items">Scroll to see all</div>
-          <div class="item">
-            <div class="item-img" style="background-image:url(http://i.imgur.com/DFghhYr.jpg)"></div>
-            <div class="item-description">
-              image-name.jpg<br>
-              <a href="http://i.imgur.com/DFghhYr.jpg" title="http://i.imgur.com/DFghhYr.jpg">http://i.imgur.com/DFghhYr.jpg</a>
-            </div>
-          </div>
+        <div class="uploaded-items" id="my-uploads">
+          <!-- items here -->
         </div>
       </section>
     </main>
 
     <footer class="footer">
       Made with <i class="fa fa-heart" aria-hidden="true"></i>
-      by <a href="https://ybrntt.com.br" title="Yuri Brunetto">Yuri Brunetto</a>
+      by <a href="https://ybrntt.com.br" title="Yuri Brunetto" target="_top">Yuri Brunetto</a>
     </footer>
 
-    <script>require('./src/main.js')</script>
+    <script>
+      require('./src/ui.js')
+      require('./src/main.js')
+      require('./src/openLinks.js')
+    </script>
 
   </body>
 </html>

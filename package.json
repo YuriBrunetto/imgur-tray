@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "electron": "^1.6.6",
-    "electron-reload": "^1.1.0"
+    "electron-reload": "^1.1.0",
+    "open": "^0.0.5"
   }
 }
