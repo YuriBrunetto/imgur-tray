@@ -3,7 +3,7 @@ const showTab = require('./showTab')
 const file = document.querySelector('#image')
 const uploaded_items = document.querySelector('#uploaded-items')
 const more_items = `<div class="more-items">Scroll to see all</div>`
-const CLIENTID = process.env.CLIENTID
+const CLIENTID = 'e57becf7e161301'
 
 file.addEventListener('change', (e) => {
   let files = e.target.files, file, len, i
