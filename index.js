@@ -33,6 +33,18 @@ const createTray = () => {
       _window.openDevTools({ mode: 'detach' })
     }
   })
+
+  // menu content
+  let menuContent = Menu.buildFromTemplate([
+    {
+      label: 'Quit',
+      accelerator: 'Command+Q',
+      selector: 'terminate:'
+    }
+  ])
+
+  tray.setToolTip('Imgur Tray')
+  tray.setContextMenu(menuContent)
 }
 
 const createWindow = () => {
