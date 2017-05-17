@@ -1,4 +1,3 @@
-require('dotenv').load()
 const showTab = require('./showTab')
 const file = document.querySelector('#image')
 const uploaded_items = document.querySelector('#uploaded-items')
