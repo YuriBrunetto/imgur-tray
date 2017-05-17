@@ -50,6 +50,12 @@ const createWindow = () => {
   })
 
   _window.loadURL(`file://${path.join(__dirname, 'index.html')}`)
+
+  _window.on('blur', () => {
+    if (!_window.webContents.isDevToolsOpened()) {
+      _window.hide()
+    }
+  })
 }
 
 const toggleWindow = () => {
