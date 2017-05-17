@@ -1,8 +1,17 @@
+// modules
+const openLinks = require('./openLinks')
 const showTab = require('./showTab')
+
+// elements
 const file = document.querySelector('#image')
 const uploaded_items = document.querySelector('#uploaded-items')
+const links = document.querySelectorAll('a')
 const more_items = `<div class="more-items">Scroll to see all</div>`
+
+// misc
 const CLIENTID = 'e57becf7e161301'
+
+openLinks(links)
 
 file.addEventListener('change', (e) => {
   let files = e.target.files, file, len, i
@@ -42,6 +51,9 @@ function uploadFile(file) {
       `
 
       uploaded_items.innerHTML += item
+
+      let items = document.querySelectorAll('.item-a')
+      openLinks(items)
     }
   }
 
