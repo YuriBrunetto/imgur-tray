@@ -12,7 +12,7 @@ const more_items = `<div class="more-items">Scroll to see all</div>`
 
 // misc
 const CLIENTID = 'e57becf7e161301'
-const saveTo = 'ImgurTray1'
+const KEY = require('./store/key')
 
 openLinks(links)
 
@@ -56,10 +56,8 @@ function uploadFile(file) {
       uploaded_items.innerHTML += item
 
       // save it!
-      let upLinks = {
-        link: data.link
-      }
-      save(saveTo, upLinks)
+      let upLinks = { link: data.link }
+      save(KEY, upLinks)
 
       let items = document.querySelectorAll('.item-a')
       openLinks(items)
@@ -68,3 +66,5 @@ function uploadFile(file) {
 
   xhttp.send(fd)
 }
+
+load()

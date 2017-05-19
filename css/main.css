@@ -127,7 +127,7 @@ body {
   border-bottom: 1px solid rgba(242,242,242,.12);
 }
 .item-img {
-  width: 40px;
+  min-width: 40px;
   height: 40px;
   border-radius: 4px;
   overflow: hidden;
@@ -145,6 +145,22 @@ body {
 .item-description a:hover {
   text-decoration: underline;
 }
+.item-clipboard {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: color .3s;
+}
+.item-clipboard:hover {
+  color: rgba(255,255,255,.8);
+}
+
 .more-items {
   font-size: 10px;
   font-weight: bold;
