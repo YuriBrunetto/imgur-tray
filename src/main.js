@@ -1,6 +1,8 @@
 // modules
 const openLinks = require('./openLinks')
 const showTab = require('./showTab')
+const save = require('./store/save')
+const load = require('./store/load')
 
 // elements
 const file = document.querySelector('#image')
@@ -10,6 +12,7 @@ const more_items = `<div class="more-items">Scroll to see all</div>`
 
 // misc
 const CLIENTID = 'e57becf7e161301'
+const saveTo = 'ImgurTray1'
 
 openLinks(links)
 
@@ -51,6 +54,12 @@ function uploadFile(file) {
       `
 
       uploaded_items.innerHTML += item
+
+      // save it!
+      let upLinks = {
+        link: data.link
+      }
+      save(saveTo, upLinks)
 
       let items = document.querySelectorAll('.item-a')
       openLinks(items)
