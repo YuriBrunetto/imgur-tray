@@ -9,6 +9,7 @@
   "author": "Yuri Brunetto (https://ybrntt.com.br)",
   "license": "MIT",
   "dependencies": {
+    "clipboard": "^1.6.1",
     "electron": "^1.6.6",
     "electron-reload": "^1.1.0",
     "open": "^0.0.5"

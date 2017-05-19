@@ -156,9 +156,17 @@ body {
   padding: 0;
   cursor: pointer;
   transition: color .3s;
+  outline: none;
 }
 .item-clipboard:hover {
   color: rgba(255,255,255,.8);
+}
+.item-copied {
+  color: rgba(255,255,255,.5);
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 1s;
+  cursor: default;
 }
 
 .more-items {
