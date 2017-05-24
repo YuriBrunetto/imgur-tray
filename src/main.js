@@ -40,6 +40,11 @@ function uploadFile(file) {
   xhttp.setRequestHeader('Authorization', `Client-ID ${CLIENTID}`)
   xhttp.onreadystatechange = () => {
     if (xhttp.status === 200 && xhttp.readyState === 4) {
+      let notif = new Notification('Upload completed', {
+        title: 'Imgur Tray',
+        body: 'Upload completed!'
+      })
+
       let res = JSON.parse(xhttp.responseText), data, item
       showTab('uploaded')
 
