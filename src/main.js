@@ -3,6 +3,7 @@ const openLinks = require('./openLinks')
 const showTab = require('./showTab')
 const save = require('./store/save')
 const load = require('./store/load')
+const Clipboard = require('clipboard')
 
 // elements
 const file = document.querySelector('#image')
@@ -54,6 +55,8 @@ function uploadFile(file) {
           <div class="item-img" style="background-image:url(${data.link})"></div>
           <div class="item-description">
             <a href="${data.link}" title="${data.link}" class="item-a">${data.link}</a>
+            <button type="button" class="item-clipboard" data-clipboard-text="${data.link}">Copy to clipboard</button>
+            <span class="item-copied">Copied!</span>
           </div>
         </div>
       `
@@ -66,6 +69,15 @@ function uploadFile(file) {
 
       let items = document.querySelectorAll('.item-a')
       openLinks(items)
+
+      let clipboard = new Clipboard('.item-clipboard')
+      clipboard.on('success', (e) => {
+        let copied = e.trigger.nextElementSibling
+        copied.style.opacity = 1
+        copied.addEventListener('transitionend', () => {
+          copied.style.opacity = 0
+        })
+      })
     }
   }
 
