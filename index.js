@@ -8,7 +8,7 @@ require('electron-reload')(__dirname)
 const assetsDirectory = path.join(__dirname, 'assets')
 
 let tray = null
-let _window = null
+let window = null
 
 app.dock.hide()
 
@@ -26,29 +26,13 @@ const createTray = () => {
 
   tray.on('double-click', toggleWindow)
   tray.on('right-click', toggleWindow)
-  tray.on('click', (event) => {
-    toggleWindow()
-
-    if (_window.isVisible() && process.defaultApp && event.metaKey) {
-      _window.openDevTools({ mode: 'detach' })
-    }
-  })
-
-  // menu content
-  let menuContent = Menu.buildFromTemplate([
-    {
-      label: 'Quit',
-      accelerator: 'Command+Q',
-      selector: 'terminate:'
-    }
-  ])
+  tray.on('click', toggleWindow)
 
   tray.setToolTip('Imgur Tray')
-  tray.setContextMenu(menuContent)
 }
 
 const createWindow = () => {
-  _window = new BrowserWindow({
+  window = new BrowserWindow({
     width: 300,
     height: 450,
     show: false,
@@ -61,25 +45,25 @@ const createWindow = () => {
     }
   })
 
-  _window.loadURL(`file://${path.join(__dirname, 'index.html')}`)
+  window.loadURL(`file://${path.join(__dirname, 'index.html')}`)
 
-  _window.on('blur', () => {
-    if (!_window.webContents.isDevToolsOpened()) {
-      _window.hide()
+  window.on('blur', () => {
+    if (!window.webContents.isDevToolsOpened()) {
+      window.hide()
     }
   })
 }
 
 const toggleWindow = () => {
-  if (_window.isVisible()) {
-    _window.hide()
+  if (window.isVisible()) {
+    window.hide()
   } else {
     showWindow()
   }
 }
 
 const getWindowPosition = () => {
-  const windowBounds = _window.getBounds()
+  const windowBounds = window.getBounds()
   const trayBounds = tray.getBounds()
 
   const x = Math.round(trayBounds.x + (trayBounds.width / 2) - (windowBounds.width / 2))
@@ -90,7 +74,7 @@ const getWindowPosition = () => {
 
 const showWindow = () => {
   const position = getWindowPosition()
-  _window.setPosition(position.x, position.y, false)
-  _window.show()
-  _window.focus()
+  window.setPosition(position.x, position.y, false)
+  window.show()
+  window.focus()
 }
